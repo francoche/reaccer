@@ -6,6 +6,7 @@
 #include<QTimer>
 #include "cronometro.h"
 #include "estaciones.h"
+#include<QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,24 +19,23 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    //void reset();
-    void crearmatriz();
-
+    void crearjuego();
+    void cerrarjuego();
+    void reset();
 
 private slots:
-    void on_pushButton_2_clicked();
-    void movercronometro();
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+    void aumentartiempo();
 
 private:
-    int filas;
-    int columnas;
     Ui::MainWindow *ui;
     QPushButton *** botones;
-    QTimer* timer;
-    Cronometro* tiempo;
-    QPushButton **aux;
+    QTimer timer;
+    Cronometro cronometro;
+    Matriz matriz;
     Estaciones estaciones;
-
+    int filas;
+    int columnas;
 };
 #endif // MAINWINDOW_H

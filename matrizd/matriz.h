@@ -9,6 +9,7 @@ protected:
 public:
     Matriz();
     void virtual crearmatriz(int x,int y)=0;
+    void virtual borrarmatriz(int x,int y)=0;
 
 };
 

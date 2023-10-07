@@ -17,3 +17,11 @@ void Caminos::crearmatriz(int x, int y)
         }
     }
 }
+
+void Caminos::borrarmatriz(int x, int y)
+{
+    for (int i = 0; i< x; i++) {
+        delete []this->matriz[i];
+    }
+    delete [] this->matriz;
+}

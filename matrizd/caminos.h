@@ -8,6 +8,8 @@ class Caminos : public Matriz
 public:
     Caminos();
     void crearmatriz(int x,int y);
+    void  borrarmatriz(int x,int y);
+
 
 };
 

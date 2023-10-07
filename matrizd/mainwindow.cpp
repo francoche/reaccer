@@ -32,11 +32,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-inline void MainWindow::reset()
-{
-    this->ui->lcdNumber->display(this->tiempo->get_seg());
 
-}
 
 void MainWindow::crearmatriz()
 {
@@ -77,6 +73,7 @@ void MainWindow::on_pushButton_2_clicked()
         this->timer->start(1000);
     }
     crearmatriz();
+    this->ui->pushButton_2->setEnabled(false);
 
 
 
@@ -85,7 +82,7 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::movercronometro()
 {
     this->tiempo->aumentar();
-    reset();
+    this->ui->lcdNumber->display(this->tiempo->get_seg());
     if(tiempo->get_seg()>9){
         QMessageBox::information(this,"perdiste","perdiste");
         on_pushButton_clicked();
@@ -98,6 +95,13 @@ void MainWindow::on_pushButton_clicked()
 {
     timer->stop();
     this->tiempo->reset();
-    reset();
+    this->ui->lcdNumber->display(this->tiempo->get_seg());
+    for(int i=0;i<filas;i++){
+        delete [] botones[i];
+    }
+    delete [] botones;
+    this->estaciones.borrarmatriz(filas,columnas);
+    this->ui->pushButton_2->setEnabled(true);
+
 }
 

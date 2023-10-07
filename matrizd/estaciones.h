@@ -16,6 +16,7 @@ private:
 public:
     Estaciones();
     void crearmatriz(int x,int y);
+    void  borrarmatriz(int x,int y);
     bool adyacente_estacion(int x,int y);
     void crearestaciones(int x,int y,QPushButton *** botones);
 
