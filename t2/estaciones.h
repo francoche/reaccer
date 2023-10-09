@@ -11,6 +11,8 @@ class Estaciones : public Matriz
 {
 private:
     int **tipo;
+    int filaultimo=0;
+    int columnaultimo=0;
 public:
     Estaciones();
     void copiarocupado(Matriz a);
@@ -18,9 +20,8 @@ public:
     void crearestaciones(int fila,int columna,QPushButton *** botones);
     void setmatrizenteros(int filas,int columnas);
     void borrarmatrienteros(int filas,int columnas);
-    //void  setmatrizbool(int filas,int columnas);
-    //void  borrarmatrizbool(int filas,int columnas);
     bool superpuestas(int fila,int columna);
+    void setcamino(QPushButton * clik,QPushButton *** punterobotones,int filas,int columnas);
 };
 
 #endif // ESTACIONES_H

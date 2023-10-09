@@ -7,6 +7,7 @@
 #include "cronometro.h"
 #include "estaciones.h"
 #include<QPushButton>
+#include "camino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,10 +24,12 @@ public:
     void cerrarjuego();
     void reset();
 
+
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void aumentartiempo();
+    void crearcamino();
 
 private:
     Ui::MainWindow *ui;
@@ -35,6 +38,7 @@ private:
     Cronometro cronometro;
     Matriz matriz;
     Estaciones estaciones;
+
     int filas;
     int columnas;
 };

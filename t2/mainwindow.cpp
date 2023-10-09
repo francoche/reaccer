@@ -26,12 +26,13 @@ void MainWindow::crearjuego()
         for(int j =0; j < columnas; j++) {
             this->botones[i][j] = new QPushButton(this);
             this->botones[i][j]->setText("camino");
+            connect(botones[i][j], SIGNAL(clicked()), this, SLOT(crearcamino()));
 
             this->ui->gridLayout_2->addWidget(this->botones[i][j], i, j);
             QObject::connect(this->botones[i][j],
                              &QPushButton::clicked,
                              [=](){
-                this->botones[i][j]->setText(".");
+                //this->botones[i][j]->setText(".");
             } );
         }
     }
@@ -57,6 +58,12 @@ void MainWindow::cerrarjuego()
 void MainWindow::reset()
 {
     this->ui->lcdNumber->display(cronometro.get_tiempo());
+}
+
+void MainWindow::crearcamino()
+{
+    QPushButton * Aux = (QPushButton *)sender();
+    this->estaciones.setcamino(Aux,this->botones,this->filas,this->columnas);
 }
 
 

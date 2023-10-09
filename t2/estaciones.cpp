@@ -97,6 +97,8 @@ void Estaciones::crearestaciones(int fila, int columna,QPushButton *** botones)
     botones[f2][c2]->setEnabled(false);
     this->matriz[f2][c2]=true;
     this->tipo[f2][c2]=t;
+    this->filaultimo=f1;
+    this->columnaultimo=c1;
 
 
 
@@ -121,6 +123,31 @@ void Estaciones::borrarmatrienteros(int filas, int columnas)
        delete [] this->tipo[i];
     }
     delete [] this->tipo;
+}
+
+void Estaciones::setcamino(QPushButton * clik,QPushButton *** punterobotones,int filas,int columnas)
+{
+    //punterobotones[filaultimo+1][columnaultimo]->setText("/");
+    if(filaultimo+1<=filas-1 && clik==punterobotones[filaultimo+1][columnaultimo]){
+        punterobotones[filaultimo+1][columnaultimo]->setText("/");
+        this->filaultimo=filaultimo+1;
+        this->columnaultimo=columnaultimo;
+    }
+    if(filaultimo-1>=0 && clik==punterobotones[filaultimo-1][columnaultimo]){
+        punterobotones[filaultimo-1][columnaultimo]->setText("/");
+        this->filaultimo=filaultimo-1;
+        this->columnaultimo=columnaultimo;
+    }
+    if(columnaultimo+1<=columnas-1 && clik==punterobotones[filaultimo][columnaultimo+1]){
+        punterobotones[filaultimo][columnaultimo+1]->setText("/");
+        this->filaultimo=filaultimo;
+        this->columnaultimo=columnaultimo+1;
+    }
+    if(columnaultimo>=0 && clik==punterobotones[filaultimo][columnaultimo-1]){
+        punterobotones[filaultimo][columnaultimo-1]->setText("/");
+        this->filaultimo=filaultimo;
+        this->columnaultimo=columnaultimo-1;
+    }
 }
 
 /*void Estaciones::setmatrizbool(int filas, int columnas)
